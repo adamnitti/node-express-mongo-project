@@ -57,7 +57,7 @@ promotionRouter.route('/:promotionId')
 .put(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
     Promotion.findByIdAndUpdate(req.params.promotionId, {
         $set: req.body
-    }, { new: true} )
+    }, { new: true } )
     .then(promotion => {
         res.statusCode = 200;
         res.setHeader('Content-type', 'application/json');
